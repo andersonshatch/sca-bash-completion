@@ -13,10 +13,19 @@ _sourceanalyzer()
 	opts="$opts -scan -show-files -show-build-ids -show-build-tree -show-build-warnings -source -sql-language"
 	opts="$opts -verbose -version -vsversion -Xms -Xmx -Xss -?"
 
-	if [[ ${cur} == -* ]] ; then
-		COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
-		return 0
+
+	local completions=()
+
+	if [[ ${prev} == "-b" ]] ; then
+		#Complete from known build IDs
+		completions=$(sourceanalyzer -show-build-ids | grep -v " ")
+	elif [[ ${cur} == -* ]] ; then
+		#Complete from the list if current word starts with a -
+		completions=$opts
 	fi
+
+	COMPREPLY=( $(compgen -W "${completions}" -- ${cur}) )
+	return 0
 }
 
 complete -F _sourceanalyzer sourceanalyzer
