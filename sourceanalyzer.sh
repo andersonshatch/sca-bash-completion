@@ -22,6 +22,10 @@ _sourceanalyzer()
 	elif [[ ${cur} == -* ]] ; then
 		#Complete from the list if current word starts with a -
 		completions=$opts
+	else
+		#Fallback to file/folder completions
+		_filedir
+		return 0
 	fi
 
 	COMPREPLY=( $(compgen -W "${completions}" -- ${cur}) )
