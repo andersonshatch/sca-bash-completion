@@ -9,7 +9,7 @@ _sourceanalyzer()
 	opts="$opts -debug -debug-verbose -disable-default-rule-type -disable-source-rendering -dotnet-sources"
 	opts="$opts -encoding -exclude -f -filter -findbugs -format -h -help -j -libdirs -logfile"
 	opts="$opts -no-default-issue-rules -no-default-rules -no-default-source-rules -no-default-sink-rules"
-	opts="$opts -python-path -quick -quiet -rules"
+	opts="$opts -php-source-root -python-path -quick -quiet -rules"
 	opts="$opts -scan -show-files -show-build-ids -show-build-tree -show-build-warnings -source -sql-language"
 	opts="$opts -verbose -version -vsversion -Xms -Xmx -Xss -?"
 
