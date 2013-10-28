@@ -17,7 +17,7 @@ If you're lucky, you can run ```echo $BASH_COMPLETION_DIR``` in your terminal an
 Unfortunately, not all configurations support this, so here are a few common locations:
 
 - MacPorts: ```/opt/local/etc/bash_completion.d/```
-- Homebrew: ```/usr/local/etc/bash_completion.d```
+- Homebrew: ```/usr/local/etc/bash_completion.d/```
 - Debian, Ubuntu & Cygwin: ```/etc/bash_completion.d/```
 
 License
