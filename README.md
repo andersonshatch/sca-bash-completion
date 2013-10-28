@@ -10,7 +10,7 @@ Current features
 
 Installation
 -------------------
-Copy the ```sourceanalyzer.sh``` script to your bash-completion directory (typically called ```bash_completion.d```).
+Copy (or symlink for easier updates) the ```sourceanalyzer.sh``` script to your bash-completion directory (typically called ```bash_completion.d```).
 
 If you're lucky, you can run ```echo $BASH_COMPLETION_DIR``` in your terminal and it will print out the path to the folder where the file should be placed.
 
