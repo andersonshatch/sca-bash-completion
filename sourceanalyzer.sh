@@ -32,4 +32,4 @@ _sourceanalyzer()
 	return 0
 }
 
-complete -F _sourceanalyzer sourceanalyzer
+complete -F _sourceanalyzer sourceanalyzer sourceanalyzer.exe
