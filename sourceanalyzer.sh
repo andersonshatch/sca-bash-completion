@@ -1,3 +1,5 @@
+#!/bin/bash
+
 _sourceanalyzer()
 {
 	local cur prev opts
