@@ -33,3 +33,50 @@ _sourceanalyzer()
 }
 
 complete -F _sourceanalyzer sourceanalyzer sourceanalyzer.exe
+
+_fortifyclient()
+{
+	local cur prev opts
+	COMPREPLY=()								#Output array
+	cur="${COMP_WORDS[COMP_CWORD]}"				#Current word
+	prev="${COMP_WORDS[COMP_CWORD-1]}"			#Previous word
+
+	keywords="archiveRuntimeEvents checkPermission"
+	keywords="$keywords deleteRuntimeEventArchive downloadAttachment downloadFPR downloadRuntimeEventArchive"
+	keywords="$keywords import invalidatetoken listProjectVersions listRuntimeApplications listRuntimeEventArchives listTokens"
+	keywords="$keywords purgeProjectVersion restoreRuntimeEventArchive"
+	keywords="$keywords token uploadFPR uploadSource"
+
+	switches="-applicationIds -archiveId -attachmentId -authtoken -bundle -daysToLive -debug"
+	switches="$switches -endDate -entityId -f -file -force -gettoken -help"
+	switches="$switches -includeSource -invalidate -invalidateById -invalidateForUser"
+	switches="$switches -machineoutput -password -permissionName -project -projectVersionID -proxyurl"
+	switches="$switches -scanDate -startDate -url -user -version"
+
+	local completions=()
+
+	if [[ ${prev} == "fortifyclient" ]] || [[ ${prev} == "fortifyclient.bat" ]] ; then
+		#Keyword completion
+		completions=$keywords
+	elif [[ ${prev} == "-f" ]] || [[ ${prev} == "-file" ]] ; then
+		#File completion
+		_filedir
+		return 0
+	elif [[ ${prev} == "-user" ]] ; then
+		#Complete users (just admin and current username)
+		completions="admin $USER"
+	elif [[ ${prev} == "-gettoken" ]] ; then
+		#Complete default token types
+		completions="AnalysisDownloadToken AnalysisUploadToken AuditToken DownloadFileTransferToken"
+		completions="$completions ReportFileTransferToken UnifiedLoginToken UploadFileTransferToken"
+	else
+		#Switch completion
+		completions=$switches
+	fi
+
+	COMPREPLY=( $(compgen -W "${completions}" -- ${cur} ) )
+	return 0
+
+}
+
+complete -F _fortifyclient fortifyclient fortifyclient.bat
