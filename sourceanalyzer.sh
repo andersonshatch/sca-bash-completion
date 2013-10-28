@@ -57,7 +57,7 @@ _fortifyclient()
 
 	local completions=()
 
-	if [[ ${prev} == "fortifyclient" ]] || [[ ${prev} == "fortifyclient.bat" ]] ; then
+	if [[ $(($COMP_CWORD-1)) == 0 ]] ; then
 		#Keyword completion
 		completions=$keywords
 	elif [[ ${prev} == "-f" ]] || [[ ${prev} == "-file" ]] ; then
