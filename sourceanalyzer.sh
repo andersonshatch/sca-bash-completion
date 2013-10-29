@@ -82,3 +82,31 @@ _fortifyclient()
 }
 
 complete -F _fortifyclient fortifyclient fortifyclient.bat
+
+_fprutility()
+{
+	local cur prev opts
+	COMPREPLY=()								#Output array
+	cur="${COMP_WORDS[COMP_CWORD]}"				#Current word
+	prev="${COMP_WORDS[COMP_CWORD-1]}"			#Previous word
+
+	switches="-analyzerIssueCounts -categoryIssueCounts -errors -extract -f -forceMigration"
+	switches="$switches -iidmigratorOptions -information -mappings -merge -mergeArchive -migrate -project"
+	switches="$switches -query -search -settings -signature -source -sourceArchive"
+	switches="$switches -useMigrationFile -useSourceProjectTemplate"
+
+	if [[ ${prev} == "-project" ]] || [[ ${prev} == "-source" ]] ; then
+		#Filename completion - .fpr and .fsa
+		_filedir '@(fpr|fsa)'
+	elif [[ ${prev} == "-f" ]] ; then
+		#Filename completion - all
+		_filedir
+	else
+		#Switch completions
+		COMPREPLY=( $(compgen -W "${switches}" -- ${cur} ) )
+	fi
+
+	return 0
+}
+
+complete -F _fprutility FPRUtility FPRUtility.bat
