@@ -110,3 +110,28 @@ _fprutility()
 }
 
 complete -F _fprutility FPRUtility FPRUtility.bat
+
+_fortifyupdate()
+{
+	local cur prev opts
+	COMPREPLY=()								#Output array
+	cur="${COMP_WORDS[COMP_CWORD]}"				#Current word
+	prev="${COMP_WORDS[COMP_CWORD-1]}"			#Previous word
+
+	switches="-acceptKey -coreDir -h -help -import -locale"
+	switches="$switches -proxyhost -proxyPassword -proxyport -proxyUsername -url"
+
+	if [[ ${prev} == "-import" ]] ; then
+		#Filename completion - .zip
+		_filedir 'zip'
+	elif [[ ${prev} == "-coreDir" ]] ; then
+		#Directory completion
+		_filedir -d
+	else
+		COMPREPLY=( $(compgen -W "${switches}" -- ${cur} ) )
+	fi
+
+	return 0
+}
+
+complete -F _fortifyupdate fortifyupdate fortifyupdate.cmd
