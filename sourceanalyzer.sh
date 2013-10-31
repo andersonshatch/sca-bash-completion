@@ -102,7 +102,7 @@ _fprutility()
 		#Filename completion - all
 		_filedir
 	else
-		#Switch completions
+		#Switch completion
 		COMPREPLY=( $(compgen -W "${switches}" -- ${cur} ) )
 	fi
 
@@ -128,6 +128,7 @@ _fortifyupdate()
 		#Directory completion
 		_filedir -d
 	else
+		#Switch completion
 		COMPREPLY=( $(compgen -W "${switches}" -- ${cur} ) )
 	fi
 
@@ -135,3 +136,38 @@ _fortifyupdate()
 }
 
 complete -F _fortifyupdate fortifyupdate fortifyupdate.cmd
+
+_reportgenerator()
+{
+	local cur prev opts
+	COMPREPLY=()							#Output array
+	cur="${COMP_WORDS[COMP_CWORD]}"			#Current word
+	prev="${COMP_WORDS[COMP_CWORD-1]}"		#Previous word
+
+	switches="-f -filterSet -format -showHidden -showRemoved -showSuppressed -source"
+	switches="$switches -template -user -verbose"
+
+	completions=()
+
+	if [[ ${prev} == "-format" ]] ; then
+		#Output format completion
+		completions="pdf rtf xml"
+	elif [[ ${prev} == "-source" ]] ; then
+		#Filename completion - .fpr
+		_filedir 'fpr'
+		return 0
+	elif [[ ${prev} == "-f" ]] || [[ ${prev} == "-template" ]] ; then
+		#Filename completion - all
+		_filedir
+		return 0
+	else
+		#Switch completion
+		completions=$switches
+	fi
+
+
+	COMPREPLY=( $(compgen -W "${completions}" -- ${cur} ) )
+	return 0
+}
+
+complete -F _reportgenerator ReportGenerator ReportGenerator.bat
