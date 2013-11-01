@@ -165,9 +165,35 @@ _reportgenerator()
 		completions=$switches
 	fi
 
-
 	COMPREPLY=( $(compgen -W "${completions}" -- ${cur} ) )
 	return 0
 }
 
 complete -F _reportgenerator ReportGenerator ReportGenerator.bat
+
+_scastate()
+{
+	local cur prev opts
+	COMPREPLY=()							#Output array
+	cur="${COMP_WORDS[COMP_CWORD]}"			#Current word
+	prev="${COMP_WORDS[COMP_CWORD-1]}"		#Previous word
+
+	switches="-a --all -debug -h -help --heap-dump -progress -properties"
+	switches="$switches -scaversion -timers -version -vminfo"
+
+	if [[ $cur =~ ^[0-9]+$ ]] ; then
+		#Process ID completion
+		_pids
+	elif [[ $prev == "--heap-dump" ]] ; then
+		#Filename completion - all
+		_filedir
+		return 0
+	else
+		#Switch completion
+		COMPREPLY=( $(compgen -W "${switches}" -- ${cur} ) )
+	fi
+
+	return 0
+}
+
+complete -F _scastate SCAState SCAState.cmd

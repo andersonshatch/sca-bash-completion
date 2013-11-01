@@ -8,7 +8,7 @@ Current features
 - Completion for many well-known ```sourceanalyzer``` switches
 - Completion for existing build IDs (typing ```sourceanalyzer -b <tab>``` will list created IDs)
 - Completion for ```fortifyclient``` (keywords, switches, token types etc.,)
-- Completion for ```FPRUtility```, ```fortifyupdate``` and ```ReportGenerator``` switches
+- Completion for ```FPRUtility```, ```fortifyupdate```, ```ReportGenerator``` and ```SCAState``` switches
 
 Installation
 -------------------
