@@ -1,5 +1,9 @@
 #!/bin/bash
 
+#Bash completion for SCA and tools - http://github.com/andersonshatch/sca-bash-completion
+#Copyright (c) 2013 Josh Anderson
+#See attached LICENSE or visit above URL
+
 _sourceanalyzer()
 {
 	local cur prev opts
@@ -14,7 +18,6 @@ _sourceanalyzer()
 	opts="$opts -php-source-root -python-path -quick -quiet -rules"
 	opts="$opts -scan -show-files -show-build-ids -show-build-tree -show-build-warnings -source -sql-language"
 	opts="$opts -verbose -version -vsversion -Xms -Xmx -Xss -?"
-
 
 	local completions=()
 
