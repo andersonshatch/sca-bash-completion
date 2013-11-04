@@ -24,6 +24,8 @@ _sourceanalyzer()
 	if [[ ${prev} == "-b" ]] ; then
 		#Complete from known build IDs
 		completions=$(sourceanalyzer -show-build-ids | grep -v " ")
+	elif [[ ${prev} == "-source" ]] ; then
+		completions=`eval echo 1.{3..7}`
 	elif [[ ${cur} == -* ]] ; then
 		#Complete from the list if current word starts with a -
 		completions=$opts
