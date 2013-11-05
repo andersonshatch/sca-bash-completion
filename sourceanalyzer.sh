@@ -25,7 +25,11 @@ _sourceanalyzer()
 		#Complete from known build IDs
 		completions=$(sourceanalyzer -show-build-ids | grep -v " ")
 	elif [[ ${prev} == "-source" ]] ; then
+		#Complete supported JDK versions
 		completions=`eval echo 1.{3..7}`
+	elif [[ ${prev} == "-sql-language" ]] ; then
+		#Complete SQL dialects
+		completions="PLSQL TSQL"
 	elif [[ ${cur} == -* ]] ; then
 		#Complete from the list if current word starts with a -
 		completions=$opts
