@@ -54,7 +54,7 @@ _fortifyclient()
 
 	keywords="archiveRuntimeEvents checkPermission"
 	keywords="$keywords deleteRuntimeEventArchive downloadAttachment downloadFPR downloadRuntimeEventArchive"
-	keywords="$keywords import invalidatetoken listProjectVersions listRuntimeApplications listRuntimeEventArchives listTokens"
+	keywords="$keywords import invalidatetoken listProjectVersions listRuntimeApplications listRuntimeEventArchives listtokens"
 	keywords="$keywords purgeProjectVersion restoreRuntimeEventArchive"
 	keywords="$keywords token uploadFPR uploadSource"
 
