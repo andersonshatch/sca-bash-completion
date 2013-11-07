@@ -47,7 +47,7 @@ complete -F _sourceanalyzer sourceanalyzer sourceanalyzer.exe
 
 _fortifyclient()
 {
-	local cur prev opts
+	local cur prev keywords switches
 	COMPREPLY=()								#Output array
 	cur="${COMP_WORDS[COMP_CWORD]}"				#Current word
 	prev="${COMP_WORDS[COMP_CWORD-1]}"			#Previous word
@@ -94,7 +94,7 @@ complete -F _fortifyclient fortifyclient fortifyclient.bat
 
 _fprutility()
 {
-	local cur prev opts
+	local cur prev switches
 	COMPREPLY=()								#Output array
 	cur="${COMP_WORDS[COMP_CWORD]}"				#Current word
 	prev="${COMP_WORDS[COMP_CWORD-1]}"			#Previous word
@@ -122,7 +122,7 @@ complete -F _fprutility FPRUtility FPRUtility.bat
 
 _fortifyupdate()
 {
-	local cur prev opts
+	local cur prev switches
 	COMPREPLY=()								#Output array
 	cur="${COMP_WORDS[COMP_CWORD]}"				#Current word
 	prev="${COMP_WORDS[COMP_CWORD-1]}"			#Previous word
@@ -148,7 +148,7 @@ complete -F _fortifyupdate fortifyupdate fortifyupdate.cmd
 
 _reportgenerator()
 {
-	local cur prev opts
+	local cur prev switches
 	COMPREPLY=()							#Output array
 	cur="${COMP_WORDS[COMP_CWORD]}"			#Current word
 	prev="${COMP_WORDS[COMP_CWORD-1]}"		#Previous word
@@ -182,7 +182,7 @@ complete -F _reportgenerator ReportGenerator ReportGenerator.bat
 
 _scastate()
 {
-	local cur prev opts
+	local cur prev switches
 	COMPREPLY=()							#Output array
 	cur="${COMP_WORDS[COMP_CWORD]}"			#Current word
 	prev="${COMP_WORDS[COMP_CWORD-1]}"		#Previous word
