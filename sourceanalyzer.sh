@@ -73,9 +73,17 @@ _fortifyclient()
 		#File completion
 		_filedir
 		return 0
+	elif [[ ${prev} == "-url" ]] ; then
+		#Complete from user specified SSC URL
+		completions=$SSC_URL
 	elif [[ ${prev} == "-user" ]] ; then
-		#Complete users (just admin and current username)
-		completions="admin $USER"
+		if [[ -n $SSC_USER ]] ; then
+			#Complete user specified SSC username
+			completions=$SSC_USER
+		else
+			#Complete guessed usernames (just admin and current username)
+			completions="admin $USER"
+		fi
 	elif [[ ${prev} == "-gettoken" ]] ; then
 		#Complete default token types
 		completions="AnalysisDownloadToken AnalysisUploadToken AuditToken DownloadFileTransferToken"

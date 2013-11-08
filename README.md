@@ -22,6 +22,10 @@ Unfortunately, not all configurations support this, so here are a few common loc
 - Homebrew: ```/usr/local/etc/bash_completion.d/```
 - Debian, Ubuntu & Cygwin: ```/etc/bash_completion.d/```
 
+Tips
+-------------------
+If you specify environment variables ```SSC_URL``` and ```SSC_USER``` they will be used to complete the values for ```-url``` and ```-user``` respectively.
+
 License
 -------------------
 The MIT License (MIT)
