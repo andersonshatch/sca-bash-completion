@@ -23,7 +23,8 @@ _sourceanalyzer()
 
 	if [[ ${prev} == "-b" ]] ; then
 		#Complete from known build IDs
-		completions=$(sourceanalyzer -show-build-ids | grep -v " ")
+		local buildDir=`ls -dr ~/.fortify/sca*/build | head -n 1`
+		completions=`find $buildDir -name "*.scasession" -exec basename {} .scasession \;`
 	elif [[ ${prev} == "-source" ]] ; then
 		#Complete supported JDK versions
 		completions=`echo 1.{3..7}`
