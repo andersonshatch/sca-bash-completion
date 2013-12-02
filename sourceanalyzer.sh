@@ -23,7 +23,13 @@ _sourceanalyzer()
 
 	if [[ ${prev} == "-b" ]] ; then
 		#Complete from known build IDs
-		local buildDir=`ls -dr ~/.fortify/sca*/build | head -n 1`
+		local fortifyDir="$HOME/.fortify"
+		if [[ -n $COMSPEC ]] ; then
+			#Windows, assume cygwin
+			local fortifyDir=`cygpath $LOCALAPPDATA/fortify`
+		fi
+
+		local buildDir=`ls -dr $fortifyDir/sca*/build 2> /dev/null | head -n 1`
 		completions=`find $buildDir -name "*.scasession" -exec basename {} .scasession \;`
 	elif [[ ${prev} == "-source" ]] ; then
 		#Complete supported JDK versions
