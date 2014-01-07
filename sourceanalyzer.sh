@@ -221,3 +221,17 @@ _scastate()
 }
 
 complete -F _scastate SCAState SCAState.cmd
+
+_auditworkbench()
+{
+	local cur prev
+	COMPREPLY=()							#Output array
+	cur="${COMP_WORDS[COMP_CWORD]}"			#Current word
+	prev="${COMP_WORDS[COMP_CWORD-1]}"		#Previous word
+
+	#Complete openable types
+	_filedir '@(fpr|fvdl)'
+	return 0
+}
+
+complete -F _auditworkbench auditworkbench auditworkbench.cmd
