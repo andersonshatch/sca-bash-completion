@@ -76,7 +76,7 @@ _fortifyclient()
 	if [[ $(($COMP_CWORD-1)) == 0 ]] ; then
 		#Keyword completion
 		completions=$keywords
-	elif [[ ${prev} == "-f" ]] || [[ ${prev} == "-file" ]] ; then
+	elif [[ ${prev} == "-f" ]] || [[ ${prev} == "-file" ]] || [[ ${prev} == "-bundle" ]] ; then
 		#File completion
 		_filedir
 		return 0
