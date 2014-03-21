@@ -31,6 +31,10 @@ _sourceanalyzer()
 
 		local buildDir=`ls -dr $fortifyDir/sca*/build 2> /dev/null | head -n 1`
 		completions=`find $buildDir -name "*.scasession" -exec basename {} .scasession \;`
+	elif [[ ${prev} == "-rules" ]] ; then
+		#Filename completion - .xml and .bin
+		_filedir '@(xml|bin)'
+		return 0
 	elif [[ ${prev} == "-source" ]] ; then
 		#Complete supported JDK versions
 		completions=`echo 1.{3..7}`
