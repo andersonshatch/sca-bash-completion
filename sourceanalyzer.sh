@@ -46,6 +46,9 @@ _sourceanalyzer()
 	elif [[ ${prev} == "-sql-language" ]] ; then
 		#Complete SQL dialects
 		completions="PLSQL TSQL"
+	elif [[ ${prev} == "-vsversion" ]] ; then
+		#Complete VS versions
+		completions=`echo 7.1 {8..12}.0`
 	elif [[ ${cur} == -* ]] ; then
 		#Complete from the list if current word starts with a -
 		completions=$opts
