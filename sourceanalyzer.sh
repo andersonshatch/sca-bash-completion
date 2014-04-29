@@ -13,7 +13,8 @@ _sourceanalyzer()
 
 	opts="-64 -append -b -build-label -build-project -build-version -cp -classpath -clean -clobber-log"
 	opts="$opts -debug -debug-verbose -disable-default-rule-type -disable-source-rendering -dotnet-sources"
-	opts="$opts -encoding -exclude -f -filter -findbugs -format -h -help -j -libdirs -logfile"
+	opts="$opts -encoding -exclude -export-build-session -f -filter -findbugs -format"
+	opts="$opts -h -help -import-build-session -j -libdirs -logfile"
 	opts="$opts -no-default-issue-rules -no-default-rules -no-default-source-rules -no-default-sink-rules"
 	opts="$opts -php-source-root -python-path -quick -quiet -rules"
 	opts="$opts -scan -show-files -show-build-ids -show-build-tree -show-build-warnings -source -sql-language"
@@ -31,6 +32,10 @@ _sourceanalyzer()
 
 		local buildDir=`ls -dr $fortifyDir/sca*/build 2> /dev/null | head -n 1`
 		completions=`find $buildDir -name "*.scasession" -exec basename {} .scasession \;`
+	elif [[ ${prev} == "-import-build-session" ]] ; then
+		#Filename completion - .mbs
+		_filedir 'mbs'
+		return 0
 	elif [[ ${prev} == "-rules" ]] ; then
 		#Filename completion - .xml and .bin
 		_filedir '@(xml|bin)'
