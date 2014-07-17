@@ -106,7 +106,7 @@ _fortifyclient()
 	elif [[ ${prev} == "-gettoken" ]] ; then
 		#Complete default token types
 		completions="AnalysisDownloadToken AnalysisUploadToken AuditToken DownloadFileTransferToken"
-		completions="$completions ReportFileTransferToken UnifiedLoginToken UploadFileTransferToken"
+		completions="$completions ReportToken ReportFileTransferToken UnifiedLoginToken UploadFileTransferToken"
 	else
 		#Switch completion
 		completions=$switches
