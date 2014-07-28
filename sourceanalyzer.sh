@@ -17,7 +17,7 @@ _sourceanalyzer()
 	opts="$opts -h -help -import-build-session -j -libdirs -logfile"
 	opts="$opts -no-default-issue-rules -no-default-rules -no-default-source-rules -no-default-sink-rules"
 	opts="$opts -php-source-root -python-path -quick -quiet -rules"
-	opts="$opts -scan -show-files -show-build-ids -show-build-tree -show-build-warnings -source -sql-language"
+	opts="$opts -scan -show-files -show-build-ids -show-build-tree -show-build-warnings -show-loc -source -sql-language"
 	opts="$opts -verbose -version -vsversion -Xms -Xmx -Xss -?"
 
 	local completions=()
