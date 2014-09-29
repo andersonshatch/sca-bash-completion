@@ -16,7 +16,7 @@ _sourceanalyzer()
 	opts="$opts -encoding -exclude -export-build-session -f -filter -findbugs -format"
 	opts="$opts -h -help -import-build-session -j -libdirs -logfile"
 	opts="$opts -no-default-issue-rules -no-default-rules -no-default-source-rules -no-default-sink-rules"
-	opts="$opts -php-source-root -python-path -quick -quiet -rules"
+	opts="$opts -php-source-root -python-path -quick -quiet -ruby-path -rubygem-path -rules"
 	opts="$opts -scan -show-files -show-build-ids -show-build-tree -show-build-warnings -show-loc -source -sql-language"
 	opts="$opts -verbose -version -vsversion -Xms -Xmx -Xss -?"
 
