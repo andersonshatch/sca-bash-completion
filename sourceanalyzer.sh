@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Bash completion for SCA and tools - http://github.com/andersonshatch/sca-bash-completion
-#Copyright (c) 2014 Josh Anderson
+#Copyright (c) 2015 Josh Anderson
 #See attached LICENSE or visit above URL
 
 _sourceanalyzer()
