@@ -217,13 +217,15 @@ _scastate()
 	cur="${COMP_WORDS[COMP_CWORD]}"			#Current word
 	prev="${COMP_WORDS[COMP_CWORD-1]}"		#Previous word
 
-	switches="-a --all -debug -h -help --heap-dump -progress -properties"
-	switches="$switches -scaversion -timers -version -vminfo"
+	switches="-a --all -debug -ftd --full-thread-dump -h -help -hd --heap-dump -liveprogress"
+	#skip -pi (short for --program-info) as -pid will be more commonly used
+	switches="$switches -nogui --program-info -pid -progress -properties"
+	switches="$switches -scaversion -td --thread-dump -timers -version -vminfo"
 
-	if [[ $cur =~ ^[0-9]+$ ]] ; then
+	if [[ $prev == "-pid" ]] ; then
 		#Process ID completion
 		_pids
-	elif [[ $prev == "--heap-dump" ]] ; then
+	elif [[ $prev == "--heap-dump" ]] || [[ $prev == "-hd" ]] ; then
 		#Filename completion - all
 		_filedir
 		return 0
