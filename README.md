@@ -1,7 +1,7 @@
 SCA Bash Completion
 ===================
 
-A Bash completion script for HP Fortify Source Code Analyzer (SCA).
+A Bash completion script for HPE Fortify Source Code Analyzer (SCA).
 
 Current features
 -------------------
