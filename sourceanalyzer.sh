@@ -158,7 +158,8 @@ _fortifyupdate()
 	prev="${COMP_WORDS[COMP_CWORD-1]}"			#Previous word
 
 	switches="-acceptKey -coreDir -h -help -import -locale"
-	switches="$switches -proxyhost -proxyPassword -proxyport -proxyUsername -url"
+	switches="$switches -proxyhost -proxyPassword -proxyport -proxyUsername"
+	switches="$switches -showInstalledExternalMetadata -showInstalledRules -url"
 
 	if [[ ${prev} == "-import" ]] ; then
 		#Filename completion - .zip
