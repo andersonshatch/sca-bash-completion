@@ -24,13 +24,17 @@ _sourceanalyzer()
 
 	if [[ ${prev} == "-b" ]] ; then
 		#Complete from known build IDs
-		local fortifyDir="$HOME/.fortify"
+		local fortifyDir="$HOME/.fortify/sca"
 		if [[ -n $COMSPEC ]] ; then
 			#Windows, assume cygwin
-			local fortifyDir=`cygpath $LOCALAPPDATA/fortify`
+			local fortifyDir=`cygpath $LOCALAPPDATA/fortify/sca`
 		fi
 
-		local buildDir=`ls -dr $fortifyDir/sca*/build 2> /dev/null | head -n 1`
+		#Find the character index of the version number in the fortify directory
+		local sortPoint=$(( ${#fortifyDir} + 1 ))
+
+		#Sort the part of the path after sca, i.e. the version number -- ensures that e.g. 16.10 will properly be higher than 6.4
+		local buildDir=`ls -d $fortifyDir*/build 2> /dev/null | sort -k 1."$sortPoint"n | tail -n 1`
 		completions=`find $buildDir -name "*.scasession" -exec basename {} .scasession \;`
 	elif [[ ${prev} == "-import-build-session" ]] ; then
 		#Filename completion - .mbs
