@@ -42,7 +42,7 @@ _sourceanalyzer()
 		return 0
 	elif [[ ${prev} == "-disable-language" ]] || [[ ${prev} == "-enable-language" ]] ; then
 		#language completion
-		completions="abap actionscript asp cfml cobol configuration cpp dotnet java javascript jsp objc php plsql python ruby sql tsql vb"
+		completions="abap actionscript asp cfml cobol configuration cpp dotnet java javascript jsp objc php plsql python ruby sql swift tsql vb"
 	elif [[ ${prev} == "-exit-code-level" ]] ; then
 		#exit code level completion
 		completions="errors nothing no_output_file warnings"
