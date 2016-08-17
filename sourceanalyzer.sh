@@ -13,7 +13,7 @@ _sourceanalyzer()
 
 	opts="-64 -append -b -build-label -build-project -build-version -cp -classpath -clean -clobber-log"
 	opts="$opts -debug -debug-verbose -disable-default-rule-type -disable-language -disable-source-bundling -dotnet-sources"
-	opts="$opts -enable-language -encoding -exclude -export-build-session -f -filter -findbugs -format"
+	opts="$opts -enable-language -encoding -exclude -exit-code-level -export-build-session -f -filter -findbugs -format"
 	opts="$opts -h -help -import-build-session -j -libdirs -logfile"
 	opts="$opts -no-default-issue-rules -no-default-rules -no-default-source-rules -no-default-sink-rules"
 	opts="$opts -php-source-root -python-path -quick -quiet -ruby-path -rubygem-path -rules"
@@ -43,6 +43,9 @@ _sourceanalyzer()
 	elif [[ ${prev} == "-disable-language" ]] || [[ ${prev} == "-enable-language" ]] ; then
 		#language completion
 		completions="abap actionscript asp cfml cobol configuration cpp dotnet java javascript jsp objc php plsql python ruby sql tsql vb"
+	elif [[ ${prev} == "-exit-code-level" ]] ; then
+		#exit code level completion
+		completions="errors nothing no_output_file warnings"
 	elif [[ ${prev} == "-rules" ]] ; then
 		#Filename completion - .xml and .bin
 		_filedir '@(xml|bin)'
