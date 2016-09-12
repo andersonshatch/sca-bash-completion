@@ -11,7 +11,7 @@ _sourceanalyzer()
 	cur="${COMP_WORDS[COMP_CWORD]}"					#Current word
 	prev="${COMP_WORDS[COMP_CWORD-1]}"				#Previous word
 
-	opts="-64 -append -b -build-label -build-project -build-version -cp -classpath -clean -clobber-log"
+	opts="-64 -append -autoheap -b -build-label -build-project -build-version -cp -classpath -clean -clobber-log"
 	opts="$opts -debug -debug-verbose -disable-default-rule-type -disable-language -disable-source-bundling -dotnet-sources"
 	opts="$opts -enable-language -encoding -exclude -exit-code-level -export-build-session -f -filter -findbugs -format"
 	opts="$opts -h -help -import-build-session -j -libdirs -logfile"
