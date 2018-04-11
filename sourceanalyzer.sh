@@ -52,7 +52,7 @@ _sourceanalyzer()
 		return 0
 	elif [[ ${prev} == "-source" ]] ; then
 		#Complete supported JDK versions
-		completions=`echo 1.{3..8}`
+		completions=`echo 1.{3..9}`
 	elif [[ ${prev} == "-sql-language" ]] ; then
 		#Complete SQL dialects
 		completions="PLSQL TSQL"
