@@ -16,7 +16,7 @@ _sourceanalyzer()
 	opts="$opts -enable-language -encoding -exclude -exit-code-level -export-build-session -f -filter -findbugs -format"
 	opts="$opts -h -help -import-build-session -incremental -incremental-base -j -libdirs -logfile -mt"
 	opts="$opts -no-default-issue-rules -no-default-rules -no-default-source-rules -no-default-sink-rules"
-	opts="$opts -php-source-root -python-path -python-version -quick -quiet -ruby-path -rubygem-path -rules"
+	opts="$opts -php-source-root -php-version -python-path -python-version -quick -quiet -ruby-path -rubygem-path -rules"
 	opts="$opts -scan -show-files -show-build-ids -show-build-tree -show-build-warnings -show-loc -source -sql-language"
 	opts="$opts -verbose -version -vsversion -Xms -Xmx -Xss -?"
 
@@ -50,6 +50,9 @@ _sourceanalyzer()
 		#Filename completion - .xml and .bin
 		_filedir '@(xml|bin)'
 		return 0
+	elif [[ ${prev} == "-php-version" ]] ; then
+		#PHP version completion
+		completions=`echo 4 5.{0..6} 7.{0..1}`
 	elif [[ ${prev} == "-python-version" ]] ; then
 		#Python version completion
 		completions="2 3"
