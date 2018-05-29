@@ -121,7 +121,7 @@ _fortifyclient()
 		fi
 	elif [[ ${prev} == "-gettoken" ]] ; then
 		#Complete default token types
-		completions="AnalysisDownloadToken AnalysisUploadToken AuditToken CloudCtrlToken DownloadFileTransferToken JenkinsToken"
+		completions="AnalysisDownloadToken AnalysisUploadToken AuditToken CIToken CloudCtrlToken DownloadFileTransferToken JenkinsToken"
 		completions="$completions ReportToken ReportFileTransferToken UnifiedLoginToken UploadFileTransferToken"
 	else
 		#Switch completion
